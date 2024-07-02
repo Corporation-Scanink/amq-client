@@ -1,0 +1,42 @@
+{
+  "groups": [
+    {
+      "name": "amq-client",
+      "type": "org.scanink.net.amq_client.config.AmqClientConfig",
+      "sourceType": "org.scanink.net.amq_client.config.AmqClientConfig"
+    },
+    {
+      "name": "spring.artemis",
+      "type": "org.scanink.net.amq_client.config.ArtemisFactoryConfiguration",
+      "sourceType": "org.scanink.net.amq_client.config.ArtemisFactoryConfiguration"
+    }
+  ],
+  "properties": [
+    {
+      "name": "amq-client.consumers",
+      "type": "java.util.List<org.scanink.net.amq_client.config.ConsumerConfig>",
+      "sourceType": "org.scanink.net.amq_client.config.AmqClientConfig"
+    },
+    {
+      "name": "amq-client.destination",
+      "type": "java.lang.String",
+      "sourceType": "org.scanink.net.amq_client.config.AmqClientConfig"
+    },
+    {
+      "name": "spring.artemis.broker-url",
+      "type": "java.lang.String",
+      "sourceType": "org.scanink.net.amq_client.config.ArtemisFactoryConfiguration"
+    },
+    {
+      "name": "spring.artemis.password",
+      "type": "java.lang.String",
+      "sourceType": "org.scanink.net.amq_client.config.ArtemisFactoryConfiguration"
+    },
+    {
+      "name": "spring.artemis.user",
+      "type": "java.lang.String",
+      "sourceType": "org.scanink.net.amq_client.config.ArtemisFactoryConfiguration"
+    }
+  ],
+  "hints": []
+}

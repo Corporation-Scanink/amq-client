@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: aqm-client
+  artemis:
+    mode: native
+    broker-url: tcp://minidock:61616?consumerWindowSize=1048576&ha=true&retryInterval=100&retryIntervalMultiplier=1.5&maxRetryInterval=60000&reconnectAttempts=10000
+    user: artemis
+    password: artemis
+  jms:
+    pub-sub-domain: true
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /
+    
+amq-client:
+  destination: multicast://laval.qc.ca
+  consumers:
+    - name: 10.0.0.1
+      group: prod
+    - name: 10.0.0.2
+      group: prod
