@@ -14,6 +14,7 @@ import lombok.Data;
 public class AmqClientConfig {
 	
 	String destination;
+	String url;
 	List<ConsumerConfig> consumers;
 
 }

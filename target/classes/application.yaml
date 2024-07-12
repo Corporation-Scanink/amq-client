@@ -17,8 +17,11 @@ springdoc:
     
 amq-client:
   destination: multicast://laval.qc.ca
+  url: http://localhost:8081  
   consumers:
     - name: 10.0.0.1
       group: prod
     - name: 10.0.0.2
       group: prod
+    - name: 10.0.0.10
+      group: pprod

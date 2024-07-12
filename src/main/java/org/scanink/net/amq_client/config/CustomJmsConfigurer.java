@@ -1,12 +1,13 @@
 package org.scanink.net.amq_client.config;
 
-import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
+import org.apache.activemq.artemis.jms.client.ActiveMQXAConnectionFactory;
 import org.scanink.net.amq_client.consumer.AmqMessageListener;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.JmsListenerConfigurer;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerEndpointRegistrar;
 import org.springframework.jms.config.SimpleJmsListenerEndpoint;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import jakarta.jms.JMSException;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @Configuration
 @Slf4j
 @AllArgsConstructor
+@EnableTransactionManagement
 public class CustomJmsConfigurer implements JmsListenerConfigurer  {
 	
 	
@@ -26,13 +28,11 @@ public class CustomJmsConfigurer implements JmsListenerConfigurer  {
 	private final ArtemisFactoryConfiguration artemisConfig;
 
 	@Override
-	public void configureJmsListeners(JmsListenerEndpointRegistrar registrar) {
-		// TODO Auto-generated method stub
-		
+	public void configureJmsListeners(JmsListenerEndpointRegistrar registrar) {		
 				
 		amqClientConfig.getConsumers().forEach(consumerConfig -> {
 			try {
-			ActiveMQConnectionFactory amqConnectionFactory = new ActiveMQConnectionFactory();
+			ActiveMQXAConnectionFactory amqConnectionFactory = new ActiveMQXAConnectionFactory();
 			amqConnectionFactory.setBrokerURL(artemisConfig.getBrokerUrl());
 	        amqConnectionFactory.setUser(artemisConfig.getUser());
 	        amqConnectionFactory.setPassword(artemisConfig.getPassword());

@@ -10,9 +10,13 @@ public class AmqMessage implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	public static final long serialVersionUID = 1L;
 	private String message;
 	
+	public AmqMessage message(String message) {
+		this.message = message;
+		return this;
+	}
 	
 
 }

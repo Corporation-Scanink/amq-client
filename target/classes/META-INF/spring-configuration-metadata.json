@@ -23,6 +23,11 @@
       "sourceType": "org.scanink.net.amq_client.config.AmqClientConfig"
     },
     {
+      "name": "amq-client.url",
+      "type": "java.lang.String",
+      "sourceType": "org.scanink.net.amq_client.config.AmqClientConfig"
+    },
+    {
       "name": "spring.artemis.broker-url",
       "type": "java.lang.String",
       "sourceType": "org.scanink.net.amq_client.config.ArtemisFactoryConfiguration"
